@@ -4,7 +4,7 @@ Meta-Data Upload Interface
 
 
 ### Description
-This is simple counter application, using flask microframework and sqlite3 to load the metadata csv to SQLIte database.
+This is python application, using flask microframework and sqlite3 to load the metadata csv to SQLIte database.
 
 ### Install guide
 
