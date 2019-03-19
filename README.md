@@ -16,13 +16,13 @@ git clone https://github.com/saurabh1969/PEcAN.git
 ## Running App using Docker
 
 
-# Build Docker
+### Build Docker
 
 ``` shell
 docker build -t pecan-docker:latest . 
 ```
 
-# Run Docker image
+### Run Docker image
 
 ``` shell
 docker run -d -p 5000:5000 pecan-docker
@@ -30,23 +30,23 @@ docker run -d -p 5000:5000 pecan-docker
 
 ## Running App Local
 
-# Go to app folder
+### Go to app folder
 
 ```bash
 cd app
 ```
 
-# Create the virtualenv
+### Create the virtualenv
 ```bash
 mkvirtualenv app
 ```
 
-# Install dependencies
+### Install dependencies
 ```shell
 pip install -r requirements.txt
 ```
 
-# Run the app
+### Run the app
 ```shell
 python routes.py
 ```
