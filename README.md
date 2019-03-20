@@ -52,8 +52,7 @@ python routes.py
 ```
 
 ## Uploading the CSV
- 1. Put the csv into app folder
- 2. While uploading the CSV,write name of the file with extension(.csv)
+ While uploading the CSV in Web UI,write name of the file with extension(.csv)
 
 ## License
 
