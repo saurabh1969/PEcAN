@@ -1,5 +1,6 @@
-from flask import Flask, g, render_template,request, redirect
+from flask import Flask, g, render_template,request, redirect,Response
 import sqlite3
+import json
 import os
 import pandas as pd
 from Model.dbcreate import *
@@ -7,7 +8,7 @@ from Model.dbcreate import *
 # Create app
 app = Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SECRET_KEY'] = 'super-secret'
+app.config['SECRET_KEY'] = 'db_key'
 
 @app.route("/")
 def index():
@@ -16,19 +17,21 @@ def index():
 @app.route('/insert',methods = ['POST', 'GET'])
 def insert():    
     if request.method == 'POST':
-        url = request.form['file']
-        init_db(url)
-        cur = get_db().cursor()
-        res=cur.execute("select * from data_table LIMIT 5" )
-    return render_template("result.html", results=res)
+        
+        file=request.args['file']
+        init_db(file)
+        
+    return "File Uploaded"
 
 @app.route('/search',methods = ['POST', 'GET'])
 def search():    
     cur = get_db().cursor()
     if request.method == 'POST':
-        id = request.form['id']
-        res=cur.execute("select * from data_table where id=?", (id,) )
-    return render_template("result.html", results=res)
+        id=request.args['id']
+        query="""SELECT * FROM data_table WHERE id = %s"""% (id,)
+        #res=cur.execute("""SELECT * FROM data_table WHERE id = %s"""% (id,))
+        res=sql_query(query)
+    return Response(json.dumps(res),  mimetype='application/json')
 
 
 @app.errorhandler(404)

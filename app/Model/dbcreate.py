@@ -67,3 +67,19 @@ def get_db():
     if db is None:
         db = g._database = sqlite3.connect(DATABASE)
     return db
+
+def sql_query(query):
+	cur = get_db().cursor()
+	cur.execute(query)
+	rows = cur.fetchall()
+	#conn.close()
+	return rows
+
+"""def sql_edit_insert(query,var):
+    
+    cur.execute(query,var)
+    
+
+def sql_delete(query,var):
+    
+    cur.execute(query,var)"""
