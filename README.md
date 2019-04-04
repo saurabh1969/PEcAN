@@ -37,7 +37,11 @@ pip install -r requirements.txt
 python routes.py
 ```
 
+## Endpoints:
 
+ 1. Uploading the csv : curl -X POST http://127.0.0.1:5000/insert?file=switchgrass.csv 
+
+ 2. Searching:         curl -X POST http://127.0.0.1:5000/search?id=4
 
 ## License
 
