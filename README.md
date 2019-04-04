@@ -51,8 +51,6 @@ pip install -r requirements.txt
 python routes.py
 ```
 
-## Uploading the CSV
- While uploading the CSV in Web UI,write name of the file with extension(.csv)
 
 ## License
 
